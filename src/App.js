@@ -8,9 +8,9 @@ import callAPI from "./components/callAPI.js";
 
 function App() {
 
-	const apiKey = 'DEMO_KEY';
+	//const apiKey = 'DEMO_KEY';
+	const apiKey = 'gnhcw9bPsrGArQIUzHOPOXzZflboDaQcevEmaanQ';
 	const nasaAPOD = `https://api.nasa.gov/planetary/apod?api_key=${apiKey}`;
-	//const nasaAPOD = `https://dog.ceo/api/breeds/image/random`;
 
 	const initialObj = {
 		url: null,
@@ -57,6 +57,13 @@ function App() {
 		<div className="AppContainer">
 			<div className="container">
 				<h1>My Astro Pics!</h1>
+
+				<div className="controlBox">
+					<button className="back">&lt;&lt; Previous</button>
+					<button className="random">Random</button>
+					<button className="next">Next &gt;&gt;</button>
+				</div>
+
 				<div className='mediaContainer'>
 					{(imageObj.media_type === 'image') && (
 						<img src={imageObj.url} alt={imageObj.title} />
@@ -69,6 +76,15 @@ function App() {
 						</video>
 					)}
 				</div>
+
+				<div className="photoHeading">
+					<p>{imageObj.date}</p> <p>{imageObj.title}</p>
+				</div>
+
+				<div className="photoInfo">
+					<p>{imageObj.explanation}</p>
+				</div>
+
 			</div>
 		</div>
 	);
